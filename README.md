@@ -66,6 +66,24 @@ resources/
 ```
 
 ## Capturas de pantalla
-[screenshot: dashboard — métricas y tablas de actividades/deals recientes]
-[screenshot: kanban — columnas con drag & drop y filtro por cliente]
-[screenshot: clientes — tabla con deals count y acciones]
+
+### Dashboard
+Muestra métricas clave: deals activos, tasa de cierre, valor en pipeline y deals ganados. Incluye tabla de actividades pendientes próximas y deals recientes.
+
+### Clientes
+Listado de clientes con contador de deals por cliente, acciones de editar y eliminar con confirmación.
+
+### Pipeline Kanban
+Tablero kanban con columnas por etapa configurable. Soporta drag & drop entre columnas, filtro reactivo por cliente y contador de deals y valor por columna.
+
+### Actividades
+Vista global de todas las actividades con filtro por tipo (llamada, email, reunión, nota) usando Alpine.js sin recargar la página. También accesible por cliente individual desde su perfil.
+
+---
+
+## Módulos incluidos
+
+- **Clientes**: CRUD completo con soft delete, contactos y historial de actividades
+- **Pipeline Kanban**: Etapas configurables, drag & drop con SortableJS, filtro reactivo con Livewire v3
+- **Actividades**: Registro por cliente y deal, filtro por tipo, marcar como completada
+- **Dashboard**: Métricas en tiempo real (deals activos, tasa de cierre, valor en pipeline, deals ganados), actividades pendientes y deals recientes

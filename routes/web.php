@@ -16,6 +16,7 @@ Route::prefix('crm')->name('crm.')->group(function (): void {
     Route::resource('customers', CustomerController::class);
     Route::resource('deals', DealController::class);
     Route::post('/deals/{deal}/move-stage', [DealController::class, 'moveStage'])->name('deals.move-stage');
+    Route::get('/activities', [ActivityController::class, 'all'])->name('activities.index');
 
     Route::prefix('customers/{customer}')->name('customers.')->group(function (): void {
         Route::get('/activities', [ActivityController::class, 'index'])->name('activities.index');

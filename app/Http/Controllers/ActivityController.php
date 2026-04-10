@@ -26,6 +26,16 @@ final class ActivityController extends Controller
         ]);
     }
 
+    public function all(): View
+    {
+        $activities = Activity::query()
+            ->with(['customer', 'deal'])
+            ->orderBy('scheduled_at', 'desc')
+            ->get();
+
+        return view('crm.activities.all', compact('activities'));
+    }
+
     public function create(Customer $customer): View
     {
         return view('crm.activities.create', [
@@ -43,9 +53,10 @@ final class ActivityController extends Controller
             ->with('success', 'Actividad creada correctamente.');
     }
 
-        public function markCompleted(Customer $customer, Activity $activity): RedirectResponse
-        {
-            $this->service->markCompleted($activity->id);
-            return back()->with('success', 'Actividad marcada como completada.');
-        }
+    public function markCompleted(Customer $customer, Activity $activity): RedirectResponse
+    {
+        $this->service->markCompleted($activity->id);
+
+        return back()->with('success', 'Actividad marcada como completada.');
+    }
 }
