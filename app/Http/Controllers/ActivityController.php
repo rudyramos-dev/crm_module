@@ -43,10 +43,9 @@ final class ActivityController extends Controller
             ->with('success', 'Actividad creada correctamente.');
     }
 
-    public function markCompleted(Activity $activity): RedirectResponse
-    {
-        $this->service->markCompleted($activity->id);
-
-        return back()->with('success', 'Actividad marcada como completada.');
-    }
+        public function markCompleted(Customer $customer, Activity $activity): RedirectResponse
+        {
+            $this->service->markCompleted($activity->id);
+            return back()->with('success', 'Actividad marcada como completada.');
+        }
 }

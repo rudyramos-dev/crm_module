@@ -6,12 +6,15 @@ namespace App\Models;
 
 use App\Models\Scopes\OrderedScope;
 use Illuminate\Database\Eloquent\Attributes\ScopedBy;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 #[ScopedBy([OrderedScope::class])]
 final class PipelineStage extends Model
 {
+    use HasFactory;
+
     /**
      * @var list<string>
      */
