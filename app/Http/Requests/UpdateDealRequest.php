@@ -19,6 +19,7 @@ final class UpdateDealRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'customer_id' => 'required|exists:customers,id',
             'title' => 'nullable|string|max:255',
             'value' => 'nullable|numeric|min:0',
             'expected_close_date' => 'nullable|date|after_or_equal:today',

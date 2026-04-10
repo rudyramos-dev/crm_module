@@ -53,7 +53,7 @@
             </a>
 
             <a href="{{ $activityUrl }}"
-               class="flex items-center gap-3 rounded-md px-4 py-3 text-sm font-medium transition {{ request()->routeIs('crm.customers.activities.*') || request()->routeIs('crm.activities.complete') ? 'bg-indigo-700 text-white' : 'text-indigo-100 hover:bg-indigo-700' }}">
+               class="flex items-center gap-3 rounded-md px-4 py-3 text-sm font-medium transition {{ request()->routeIs('crm.customers.activities.*') ? 'bg-indigo-700 text-white' : 'text-indigo-100 hover:bg-indigo-700' }}">
                 <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
                     <path d="M8 2v4" stroke-linecap="round" />
                     <path d="M16 2v4" stroke-linecap="round" />

@@ -21,8 +21,6 @@ Route::prefix('crm')->name('crm.')->group(function (): void {
         Route::get('/activities', [ActivityController::class, 'index'])->name('activities.index');
         Route::get('/activities/create', [ActivityController::class, 'create'])->name('activities.create');
         Route::post('/activities', [ActivityController::class, 'store'])->name('activities.store');
+        Route::post('/activities/{activity}/complete', [ActivityController::class, 'markCompleted'])->name('activities.complete');
     });
-
-    Route::post('/activities/{activity}/complete', [ActivityController::class, 'markCompleted'])
-        ->name('activities.complete');
 });

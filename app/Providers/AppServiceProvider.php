@@ -6,6 +6,7 @@ use App\Repositories\Contracts\CustomerRepositoryInterface;
 use App\Repositories\Contracts\DealRepositoryInterface;
 use App\Repositories\CustomerRepository;
 use App\Repositories\DealRepository;
+use Carbon\Carbon;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -24,6 +25,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        Carbon::setLocale('es');
     }
 }
