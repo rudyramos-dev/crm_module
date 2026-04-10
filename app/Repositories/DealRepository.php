@@ -45,6 +45,13 @@ final class DealRepository implements DealRepositoryInterface
         return $deal->refresh();
     }
 
+    public function delete(int $id): bool
+    {
+        $deal = $this->find($id);
+
+        return (bool) $deal->delete();
+    }
+
     public function moveToStage(int $dealId, int $stageId): Deal
     {
         return $this->update($dealId, ['pipeline_stage_id' => $stageId]);

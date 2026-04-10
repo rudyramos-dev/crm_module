@@ -17,6 +17,8 @@ interface DealRepositoryInterface
 
     public function update(int $id, array $data): Deal;
 
+    public function delete(int $id): bool;
+
     public function moveToStage(int $dealId, int $stageId): Deal;
 
     public function getKanbanData(): Collection;
