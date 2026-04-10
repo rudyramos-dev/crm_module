@@ -7,8 +7,8 @@ namespace App\Livewire;
 use App\Models\Customer;
 use App\Models\Deal;
 use App\Models\PipelineStage;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\View\View;
 use Livewire\Attributes\Computed;
 use Livewire\Attributes\On;
@@ -32,7 +32,7 @@ final class KanbanBoard extends Component
     {
         return PipelineStage::query()
             ->with([
-                'deals' => function (Builder $query): void {
+                'deals' => function (HasMany $query): void {
                     if ($this->selectedCustomerId) {
                         $query->where('customer_id', $this->selectedCustomerId);
                     }

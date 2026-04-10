@@ -10,9 +10,6 @@
 <body class="min-h-screen bg-slate-100 text-slate-800 antialiased">
     @php
         $activityCustomer = request()->route('customer');
-        $activityUrl = $activityCustomer
-            ? route('crm.customers.activities.index', ['customer' => $activityCustomer])
-            : route('crm.customers.index');
     @endphp
 
     <aside class="fixed inset-y-0 left-0 w-64 bg-indigo-800">
@@ -52,7 +49,8 @@
                 Pipeline
             </a>
 
-            <a href="{{ $activityUrl }}"
+            <a href="{{ $activityCustomer ? route('crm.customers.activities.index', $activityCustomer) : route('crm.customers.index') }}"
+               title="{{ $activityCustomer ? 'Ver actividades' : 'Selecciona un cliente para ver sus actividades' }}"
                class="flex items-center gap-3 rounded-md px-4 py-3 text-sm font-medium transition {{ request()->routeIs('crm.customers.activities.*') ? 'bg-indigo-700 text-white' : 'text-indigo-100 hover:bg-indigo-700' }}">
                 <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
                     <path d="M8 2v4" stroke-linecap="round" />

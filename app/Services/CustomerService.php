@@ -17,9 +17,13 @@ final class CustomerService
 
     public function list(Request $request): Collection
     {
-        return $this->repository->all([
-            'search' => $request->input('search'),
-        ]);
+        $search = $request->input('search');
+
+        if ($search) {
+            return $this->repository->all(['search' => $search]);
+        }
+
+        return $this->repository->getWithDealsCount();
     }
 
     public function store(array $data): Customer

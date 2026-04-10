@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             PipelineStageSeeder::class,
+            DemoSeeder::class,
         ]);
     }
 }
